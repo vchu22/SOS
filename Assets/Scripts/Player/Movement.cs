@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace SurvivalIsland.Player
 {
@@ -8,23 +9,26 @@ namespace SurvivalIsland.Player
     {
         Rigidbody2D rb;
         public float moveSpeed = 10.0f;
-        float horizontal = 0.0f;
-        float vertical = 0.0f;
+        public Vector2 moveDirection = Vector2.zero;
+        public Vector2 lastNonZeroMoveDirection = Vector2.down;
 
-        // Start is called before the first frame update
         void Start()
         {
             rb = gameObject.GetComponent<Rigidbody2D>();
         }
 
-        // Update is called once per frame
         void FixedUpdate()
         {
-            horizontal = Input.GetAxisRaw("Horizontal");
-            vertical = Input.GetAxisRaw("Vertical");
+            rb.velocity = moveDirection * moveSpeed;
+        }
 
-            rb.velocity = new Vector2(horizontal * moveSpeed, vertical * moveSpeed);
-
+        public void OnMove(InputAction.CallbackContext context)
+        {
+            moveDirection = context.ReadValue<Vector2>();
+            if(moveDirection != Vector2.zero)
+            {
+                lastNonZeroMoveDirection = moveDirection;
+            }
         }
     }
 }
