@@ -1,5 +1,8 @@
 # S.O.S.
-Project for ShellHacks 2022
+A game project for ShellHacks 2022
+
+## Story
+S.O.S. is a 2D survival game that takes place in a post-apocalypse world after climate change. The player is stuck on an island, and your objective is to use the available items on the island to make an S.O.S. sign before you die from thrist or hunger.
 
 ## Tech Stack
 - Game Engine: Unity
