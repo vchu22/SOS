@@ -1,2 +1,2 @@
-# post-apocalypse-survival-island
+# S.O.S.
 Project for ShellHacks 2022
