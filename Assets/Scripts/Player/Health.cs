@@ -14,6 +14,7 @@ namespace SurvivalIsland.Player
         public float thirst = 100;
 
         public float runHungerDepletionRate = 0.05f;
+        public float runThirstDepletionRate = 0.05f;
         public float thirstDepletionRate = 0.05f;
 
         void Awake()
@@ -24,7 +25,7 @@ namespace SurvivalIsland.Player
         void Update()
         {
             hunger -= runHungerDepletionRate * rb.velocity.normalized.magnitude * Time.deltaTime;
-            thirst -= thirstDepletionRate * (1 + rb.velocity.normalized.magnitude) * Time.deltaTime;
+            thirst -= (thirstDepletionRate + runThirstDepletionRate * rb.velocity.normalized.magnitude) * Time.deltaTime;
         }
     }
 }
