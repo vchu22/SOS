@@ -9,8 +9,8 @@ namespace SurvivalIsland.Player
     {
         Rigidbody2D rb;
         public float moveSpeed = 10.0f;
-        public Vector2 moveDirection = Vector2.zero;
-        public Vector2 lastNonZeroMoveDirection = Vector2.down;
+        private Vector2 moveDirection = Vector2.zero;
+        [HideInInspector] public Vector2 lastNonZeroMoveDirection = Vector2.down;
 
         void Start()
         {
