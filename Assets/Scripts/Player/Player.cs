@@ -8,6 +8,9 @@ public class Player : MonoBehaviour
     public float moveSpeed = 10.0f;
     float horizontal = 0.0f;
     float vertical = 0.0f;
+    float hunger = 100.0f;
+    float thirst = 100.0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,10 +25,5 @@ public class Player : MonoBehaviour
 
         rb.velocity = new Vector2(horizontal * moveSpeed, vertical * moveSpeed);
         
-    }
-
-    void FixedUpdate()
-    {
-        rb.velocity = new Vector2(horizontal * moveSpeed, vertical * moveSpeed);
     }
 }
