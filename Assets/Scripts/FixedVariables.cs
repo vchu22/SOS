@@ -7,5 +7,5 @@ using UnityEngine;
  */
 public static class FixedVariables
 {
-    public static string title = "Post-Apocalypse Survival Island";
+    public static string title = "S.O.S.";
 }
