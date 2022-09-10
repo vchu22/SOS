@@ -8,16 +8,23 @@ namespace SurvivalIsland.Player
     {
         Rigidbody2D rb;
 
-        float hunger = 100;
-        float thirst = 100;
+        public float maxHunger = 100.0f;
+        public float maxThirst = 100.0f;
+        public float hunger = 100;
+        public float thirst = 100;
 
-        float runHungerDepletionRate = 0.05f;
-        float thirstDepletionRate = 0.05f;
+        public float runHungerDepletionRate = 0.05f;
+        public float thirstDepletionRate = 0.05f;
+
+        void Awake()
+        {
+            rb = gameObject.GetComponent<Rigidbody2D>();
+        }
 
         void Update()
         {
-            hunger -= runHungerDepletionRate * rb.velocity.magnitude * Time.deltaTime;
-            thirst -= thirstDepletionRate * Time.deltaTime;
+            hunger -= runHungerDepletionRate * rb.velocity.normalized.magnitude * Time.deltaTime;
+            thirst -= thirstDepletionRate * (1 + rb.velocity.normalized.magnitude) * Time.deltaTime;
         }
     }
 }
