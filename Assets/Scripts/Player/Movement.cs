@@ -2,27 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace SurvivalIsland.Player;
-public class Movement : MonoBehaviour
+namespace SurvivalIsland.Player
 {
-    Rigidbody2D rb;
-    public float moveSpeed = 10.0f;
-    float horizontal = 0.0f;
-    float vertical = 0.0f;
-
-    // Start is called before the first frame update
-    void Start()
+    public class Movement : MonoBehaviour
     {
-        rb = gameObject.GetComponent<Rigidbody2D>();
-    }
+        Rigidbody2D rb;
+        public float moveSpeed = 10.0f;
+        float horizontal = 0.0f;
+        float vertical = 0.0f;
 
-    // Update is called once per frame
-    void Update()
-    {
-        horizontal = Input.GetAxisRaw("Horizontal");
-        vertical = Input.GetAxisRaw("Vertical");
+        // Start is called before the first frame update
+        void Start()
+        {
+            rb = gameObject.GetComponent<Rigidbody2D>();
+        }
 
-        rb.velocity = new Vector2(horizontal * moveSpeed, vertical * moveSpeed);
+        // Update is called once per frame
+        void Update()
+        {
+            horizontal = Input.GetAxisRaw("Horizontal");
+            vertical = Input.GetAxisRaw("Vertical");
 
+            rb.velocity = new Vector2(horizontal * moveSpeed, vertical * moveSpeed);
+
+        }
     }
 }

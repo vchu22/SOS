@@ -2,21 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace SurvivalIsland.Player;
-
-public class Health : MonoBehaviour
+namespace SurvivalIsland.Player
 {
-    Rigidbody2D rb;
-
-    float hunger = 100;
-    float thirst = 100;
-    
-    float runHungerDepletionRate = 0.05;
-    float thirstDepletionRate = 0.05;
-
-    void Update()
+    public class Health : MonoBehaviour
     {
-        hunger -= runHungerDepletionRate * rb.velocity.magnitude * Time.deltaTime;
-        thirst -= thirstDepletionRate * Time.deltaTime;
+        Rigidbody2D rb;
+
+        float hunger = 100;
+        float thirst = 100;
+
+        float runHungerDepletionRate = 0.05f;
+        float thirstDepletionRate = 0.05f;
+
+        void Update()
+        {
+            hunger -= runHungerDepletionRate * rb.velocity.magnitude * Time.deltaTime;
+            thirst -= thirstDepletionRate * Time.deltaTime;
+        }
     }
 }
