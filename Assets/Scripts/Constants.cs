@@ -7,7 +7,7 @@ namespace SurvivalIsland;
 /*
  * This file contains all the variables that will be fixed and shared among different script files
  */
-public static class FixedVariables
+public static class Constants
 {
     public static string title = "S.O.S.";
 }
