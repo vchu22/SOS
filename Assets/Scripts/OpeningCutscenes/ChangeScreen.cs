@@ -11,6 +11,7 @@ public class ChangeScreen : MonoBehaviour
     [SerializeField] GameObject PlayerStory;
     [SerializeField] GameObject SkipCutsceneText;
 
+    private bool OpeningVideoFinished;
     private bool PlayerStoryFinished;
     private void Start()
     {
@@ -25,7 +26,7 @@ public class ChangeScreen : MonoBehaviour
         {
             OpeningVideo.SetActive(false);
             PlayerStory.SetActive(true);
-            PlayerStoryFinished = true;
+            OpeningVideoFinished = true;
         } else if (videoPlayer.clockTime >= 5)
         {
             SkipCutsceneText.SetActive(true);
@@ -35,11 +36,20 @@ public class ChangeScreen : MonoBehaviour
             SkipCutsceneText.SetActive(false);
         }
 
+        if (OpeningVideoFinished && Input.anyKey)
+        {
+            PlayerStoryFinished = true;
+        }
+
         // Once finished playing all the player story dialogs in this scene, proceed to the game scene
         if (PlayerStoryFinished)
         {
             SceneManager.LoadScene("03-GameScene1");
         }
     }
-    
+
+    private void WaitForInput()
+    {
+
+    }
 }
