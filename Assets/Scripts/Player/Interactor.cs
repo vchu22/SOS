@@ -9,7 +9,7 @@ namespace SurvivalIsland.Player
     public class Interactor : MonoBehaviour
     {
         private Movement movement;
-        private Health health;
+        [HideInInspector] public Health health;
         [HideInInspector] public Inventory inventory;
         public float interactRange = 1.0f;
 

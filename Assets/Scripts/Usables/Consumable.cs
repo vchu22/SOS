@@ -10,6 +10,8 @@ namespace SurvivalIsland.Usables
         public void Use(Interactor interactor)
         {
             interactor.inventory.RemoveItem();
+            interactor.health.hunger += hungerRegen;
+            interactor.health.thirst += thirstRegen;
             Destroy(gameObject);
         }
     }

@@ -24,8 +24,8 @@ namespace SurvivalIsland.Player
 
         void Update()
         {
-            hunger -= runHungerDepletionRate * rb.velocity.normalized.magnitude * Time.deltaTime;
-            thirst -= (thirstDepletionRate + runThirstDepletionRate * rb.velocity.normalized.magnitude) * Time.deltaTime;
+            hunger = Mathf.Clamp(hunger - runHungerDepletionRate * rb.velocity.magnitude * Time.deltaTime, 0, maxHunger);
+            thirst = Mathf.Clamp(thirst - thirstDepletionRate - runThirstDepletionRate * rb.velocity.magnitude * Time.deltaTime, 0, maxThirst);
         }
     }
 }
