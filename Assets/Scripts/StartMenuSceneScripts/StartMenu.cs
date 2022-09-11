@@ -9,7 +9,12 @@ public class StartMenu : MonoBehaviour
         SceneManager.LoadScene("02-OpeningScene");
     }
 
+    public void OpenSettings() {
+
+    }
+
     public void QuitGame() {
+        Debug.Log("Quitting game.");
         Application.Quit();
     }
 }
