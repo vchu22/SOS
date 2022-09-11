@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using SurvivalIsland.Interactables;
+using SurvivalIsland.UI;
 
 namespace SurvivalIsland.Player
 {
     public class Interactor : MonoBehaviour
     {
         private Movement movement;
+        public Dialogue dialogueManager;
         [HideInInspector] public Health health;
         [HideInInspector] public Inventory inventory;
         public float interactRange = 1.0f;
