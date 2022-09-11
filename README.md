@@ -11,5 +11,5 @@ S.O.S. is a 2D survival game that takes place in a post-apocalypse world after c
 ## Team members / Roles
 - Randy Encarnacion: Game Artist, Asset Creator, Story Writer
 - Edgard Irineo: Game Programmer
-- Vanessa Chu: Repo manager, Game Programmer
+- Vanessa Chu: Repo manager, Game Programmer, Video Editing
 - Victor Martinez: General Programming
