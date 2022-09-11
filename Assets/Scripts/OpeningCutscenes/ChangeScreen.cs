@@ -9,6 +9,7 @@ public class ChangeScreen : MonoBehaviour
     VideoPlayer videoPlayer;
     [SerializeField] GameObject OpeningVideo;
     [SerializeField] GameObject PlayerStory;
+    [SerializeField] GameObject SkipCutsceneText;
 
     private bool PlayerStoryFinished;
     private void Start()
@@ -19,11 +20,19 @@ public class ChangeScreen : MonoBehaviour
     void Update() {
         // Before the video start, the video isPlaying is false. So we need to check whether the played
         // is beyond 0 to determine if we reached the end of the video
+        Debug.Log(videoPlayer.clockTime);
         if (!videoPlayer.isPlaying & videoPlayer.clockTime > 0)
         {
             OpeningVideo.SetActive(false);
             PlayerStory.SetActive(true);
             PlayerStoryFinished = true;
+        } else if (videoPlayer.clockTime >= 5)
+        {
+            SkipCutsceneText.SetActive(true);
+        }
+        if (videoPlayer.clockTime >= 15)
+        {
+            SkipCutsceneText.SetActive(false);
         }
 
         // Once finished playing all the player story dialogs in this scene, proceed to the game scene
