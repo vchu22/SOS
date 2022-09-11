@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 49633066}
   - component: {fileID: 49633068}
   - component: {fileID: 49633067}
+  - component: {fileID: 49633069}
   m_Layer: 5
   m_Name: Clouds
   m_TagString: Untagged
@@ -196,6 +197,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 49633065}
   m_CullTransparentMesh: 1
+--- !u!114 &49633069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49633065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 569bc60c311f6460b95fbc78a654dc76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rectTransform: {fileID: 49633066}
+  _parentRectTransform: {fileID: 976158134}
+  _image: {fileID: 49633067}
+  repeatCount: {x: 2, y: 2}
+  scroll: {x: 0.15, y: 0}
+  offset: {x: 0, y: -0.5}
 --- !u!1 &200040165
 GameObject:
   m_ObjectHideFlags: 0
@@ -1539,6 +1558,7 @@ GameObject:
   - component: {fileID: 2001054872}
   - component: {fileID: 2001054874}
   - component: {fileID: 2001054873}
+  - component: {fileID: 2001054875}
   m_Layer: 5
   m_Name: City
   m_TagString: Untagged
@@ -1601,3 +1621,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2001054871}
   m_CullTransparentMesh: 1
+--- !u!114 &2001054875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2001054871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 569bc60c311f6460b95fbc78a654dc76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rectTransform: {fileID: 2001054872}
+  _parentRectTransform: {fileID: 976158134}
+  _image: {fileID: 2001054873}
+  repeatCount: {x: 2, y: 2}
+  scroll: {x: 0.15, y: 0}
+  offset: {x: 0, y: -0.62}
