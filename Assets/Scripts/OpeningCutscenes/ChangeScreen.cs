@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class ChangeScreen : MonoBehaviour
 {
@@ -16,13 +17,19 @@ public class ChangeScreen : MonoBehaviour
     private void Start()
     {
         videoPlayer = GameObject.Find("Video Player").GetComponent<UnityEngine.Video.VideoPlayer>();
+        OpeningVideoFinished = false;
         PlayerStoryFinished = false;
     }
     void Update() {
         // Before the video start, the video isPlaying is false. So we need to check whether the played
         // is beyond 0 to determine if we reached the end of the video
         Debug.Log(videoPlayer.clockTime);
-        if (!videoPlayer.isPlaying & videoPlayer.clockTime > 0)
+        if (videoPlayer.isPlaying && Keyboard.current.spaceKey.wasPressedThisFrame)
+        {
+            videoPlayer.Stop();
+            OpeningVideoFinished = true;
+        }
+        if (!videoPlayer.isPlaying && videoPlayer.clockTime > 0)
         {
             OpeningVideo.SetActive(false);
             PlayerStory.SetActive(true);
@@ -36,13 +43,13 @@ public class ChangeScreen : MonoBehaviour
             SkipCutsceneText.SetActive(false);
         }
 
-        if (OpeningVideoFinished && Input.anyKey)
+        if (OpeningVideoFinished && !PlayerStoryFinished && Input.anyKeyDown)
         {
             PlayerStoryFinished = true;
         }
 
         // Once finished playing all the player story dialogs in this scene, proceed to the game scene
-        if (PlayerStoryFinished)
+        if (OpeningVideoFinished && PlayerStoryFinished)
         {
             SceneManager.LoadScene("03-GameScene1");
         }
