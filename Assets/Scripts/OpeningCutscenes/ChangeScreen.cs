@@ -61,6 +61,6 @@ public class ChangeScreen : MonoBehaviour
         screen1.SetActive(false);
         screen2.SetActive(true);
         for (int i=0; i<sceneFinishedFlags.Length; i++)
-        OpeningVideoFinished = true;
+            OpeningVideoFinished = true;
     }
 }
