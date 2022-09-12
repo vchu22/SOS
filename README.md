@@ -19,6 +19,6 @@ S.O.S. is a 2D survival game that takes place in a post-apocalypse world after c
 - Victor Martinez: General Programming
 
 ## Credits
-Start Menu Music: https://www.zapsplat.com/music/difficult-decisions-melancholy-dark-and-sombre-down-tempo-piano-melody-warm-pads/
-Opening Scene Movie BGM: https://www.youtube.com/watch?v=i8Nx_stNUf4
-Gameplay Scene 1 BGM: https://www.zapsplat.com/music/intruder-dark-tense-and-sinister-tension-leads-from-sparse-piano-stabs-dark-synth-pads-and-impactful-percussion-hits/
+- Start Menu Music: https://www.zapsplat.com/music/difficult-decisions-melancholy-dark-and-sombre-down-tempo-piano-melody-warm-pads/
+- Opening Scene Movie BGM: https://www.youtube.com/watch?v=i8Nx_stNUf4
+- Gameplay Scene 1 BGM: https://www.zapsplat.com/music/intruder-dark-tense-and-sinister-tension-leads-from-sparse-piano-stabs-dark-synth-pads-and-impactful-percussion-hits/
