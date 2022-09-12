@@ -21,42 +21,46 @@ public class ChangeScreen : MonoBehaviour
         PlayerStoryFinished = false;
     }
     void Update() {
-        // Before the video start, the video isPlaying is false. So we need to check whether the played
-        // is beyond 0 to determine if we reached the end of the video
         Debug.Log(videoPlayer.clockTime);
-        if (videoPlayer.isPlaying && Keyboard.current.spaceKey.wasPressedThisFrame)
-        {
-            videoPlayer.Stop();
-            OpeningVideoFinished = true;
-        }
-        if (!videoPlayer.isPlaying && videoPlayer.clockTime > 0)
-        {
-            OpeningVideo.SetActive(false);
-            PlayerStory.SetActive(true);
-            OpeningVideoFinished = true;
-        } else if (videoPlayer.clockTime >= 5)
-        {
-            SkipCutsceneText.SetActive(true);
-        }
-        if (videoPlayer.clockTime >= 15)
-        {
-            SkipCutsceneText.SetActive(false);
-        }
+        Debug.Log("OpeningVideoFinished " + OpeningVideoFinished + ", PlayerStoryFinished " + PlayerStoryFinished);
 
-        if (OpeningVideoFinished && !PlayerStoryFinished && Input.anyKeyDown)
-        {
-            PlayerStoryFinished = true;
-        }
-
-        // Once finished playing all the player story dialogs in this scene, proceed to the game scene
-        if (OpeningVideoFinished && PlayerStoryFinished)
-        {
-            SceneManager.LoadScene("03-GameScene1");
+        if (!OpeningVideoFinished) {
+            if (videoPlayer.isPlaying && Keyboard.current.spaceKey.wasPressedThisFrame)
+            {
+                videoPlayer.Stop();
+                SwitchScreen(OpeningVideo, PlayerStory, new bool[] { OpeningVideoFinished });
+            }
+            if (videoPlayer.clockTime >= 5)
+            {
+                SkipCutsceneText.SetActive(true);
+            } else if (videoPlayer.clockTime >= 15)
+            {
+                SkipCutsceneText.SetActive(false);
+            }
+            // Before the video start, the video isPlaying is false. So we need to check whether the played
+            // is beyond 0 to determine if we reached the end of the video
+            if (!videoPlayer.isPlaying && videoPlayer.clockTime > 0)
+            {
+                SwitchScreen(OpeningVideo, PlayerStory, new bool[] { OpeningVideoFinished });
+            }
+        } else {
+            Debug.Log("OpeningVideoFinished " + OpeningVideoFinished + ", PlayerStoryFinished " + PlayerStoryFinished);
+            // Once finished playing all the player story dialogs in this scene, proceed to the game scene
+            if (PlayerStoryFinished)
+            {
+                SceneManager.LoadScene("03-GameScene1");
+            } else if (Keyboard.current.spaceKey.wasPressedThisFrame)
+            {
+                PlayerStoryFinished = true;
+            }
         }
     }
 
-    private void WaitForInput()
+    private void SwitchScreen(GameObject screen1, GameObject screen2, bool[] sceneFinishedFlags)
     {
-
+        screen1.SetActive(false);
+        screen2.SetActive(true);
+        for (int i=0; i<sceneFinishedFlags.Length; i++)
+        OpeningVideoFinished = true;
     }
 }
