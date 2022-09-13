@@ -6,12 +6,7 @@ using UnityEngine.SceneManagement;
 public class StartMenu : MonoBehaviour
 {
     public void PlayGame() {
-        if (Application.platform == RuntimePlatform.WebGLPlayer)
-        {
-            SceneManager.LoadScene("03-GameScene1");
-        } else {
-            SceneManager.LoadScene("02-OpeningScene");
-        }
+        SceneManager.LoadScene("02-OpeningScene");
     }
 
     public void OpenSettings() {

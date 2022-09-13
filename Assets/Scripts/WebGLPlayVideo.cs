@@ -3,8 +3,10 @@ using UnityEngine.Video;
 
 public class WebGLPlayVideo : MonoBehaviour
 {
-    VideoPlayer videoPlayer;
-    public string url;
+    [SerializeField]
+    private VideoPlayer videoPlayer;
+    [SerializeField]
+    private string videoFileName;
 
     // Use this for initialization
     void Start()
@@ -12,7 +14,7 @@ public class WebGLPlayVideo : MonoBehaviour
         if (Application.platform == RuntimePlatform.WebGLPlayer)
         {
             videoPlayer = GetComponent<VideoPlayer>();
-            videoPlayer.url = url;
+            videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, videoFileName);
             videoPlayer.Play();
         }
     }
