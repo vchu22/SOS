@@ -21,9 +21,6 @@ public class ChangeScreen : MonoBehaviour
         PlayerStoryFinished = false;
     }
     void Update() {
-        Debug.Log(videoPlayer.clockTime);
-        Debug.Log("OpeningVideoFinished " + OpeningVideoFinished + ", PlayerStoryFinished " + PlayerStoryFinished);
-
         if (!OpeningVideoFinished) {
             if (videoPlayer.isPlaying && Keyboard.current.spaceKey.wasPressedThisFrame)
             {
